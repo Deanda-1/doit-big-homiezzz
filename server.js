@@ -1,21 +1,26 @@
 const express = require('express');
 const path = require('path');
 const api = require('./routes/index.js');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
 
 const PORT = 3001;
 
 const app = express();
 
 // Middleware for parsing JSON and urlencoded form data
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // app.use('/api', api);
 
- app.use(express.static('drink_catalog/main'));
+ app.use(express.static('assets'));
 
 // GET Route for homepage
 app.get('/', (req, res) =>
-  res.sendFile(path.join(__dirname, '/drink_catalog/main/index.html'))
+//  res.sendFile(path.join(__dirname, '/drink_catalog/main/index.html'))
+    res.render('home')
 );
 
 // GET Route for feedback page
