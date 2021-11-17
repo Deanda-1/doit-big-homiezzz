@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const api = require('./routes/index.js');
 
+const sequelize = require('./config/connection');
+const { User, Category, Recipe } = require('./models');
+
 const PORT = 3001;
 
 const app = express();
@@ -23,6 +26,6 @@ app.get('/feedback', (req, res) =>
   res.sendFile(path.join(__dirname, '/recipe/main/index.html'))
 );
 
-app.listen(PORT, () =>
+sequelize.sync({ force: false }).then(() => {
   console.log(`App listening at http://localhost:${PORT} 🚀`)
-);
+});
