@@ -28,8 +28,8 @@ app.get('/', (req, res) => {
 });
 
 // GET Route for feedback page
-app.get('/feedback', (req, res) =>{
-  res.sendFile(path.join(__dirname, '/recipe/main/index.html'))
+app.get('/category/recipe/:id', (req, res) => {
+  res.render('recipe');
 });
 
 // GET Route for Login Page
