@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const helpers = require('./utils/auth');
 // const api = require('./routes/index.js');
 
 const sequelize = require('./config/connection');
@@ -29,6 +30,11 @@ app.get('/', (req, res) => {
 // GET Route for feedback page
 app.get('/feedback', (req, res) =>{
   res.sendFile(path.join(__dirname, '/recipe/main/index.html'))
+});
+
+// GET Route for Login Page
+app.get('/login', (req, res) => {
+  res.render('login');
 });
 
 sequelize.sync({ force: false }).then(() => {
