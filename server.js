@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
-// GET Route for feedback page
+// GET Route for recipe pages
 app.get('/category/recipe/:id', (req, res) => {
   res.render('recipe');
 });
@@ -35,6 +35,51 @@ app.get('/category/recipe/:id', (req, res) => {
 // GET Route for Login Page
 app.get('/login', (req, res) => {
   res.render('login');
+});
+
+// GET Route for Sign Up
+app.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
+// GET Route for vodka list
+app.get('/vodka', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/gin', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/whiskey', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/bourbon', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/tequila', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/rum', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/wine', (req,res) => {
+  res.render('results')
+});
+
+// GET Route for results list
+app.get('/brandy', (req,res) => {
+  res.render('results')
 });
 
 sequelize.sync({ force: false }).then(() => {
