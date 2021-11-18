@@ -7,10 +7,9 @@ const helpers = require('./utils/auth');
 const sequelize = require('./config/connection');
 const { User, Category, Recipe } = require('./models');
 
-const PORT = 3001;
-const port = process.env.PORT || 3001
-
 const app = express();
+const PORT = rocess.env.PORT || 3001
+
 
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
