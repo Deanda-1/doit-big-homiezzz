@@ -8,7 +8,7 @@ const sequelize = require('./config/connection');
 const { User, Category, Recipe } = require('./models');
 
 const app = express();
-const PORT = rocess.env.PORT || 3001
+const PORT = process.env.PORT || 3001
 
 
 app.engine('handlebars', exphbs.engine());
