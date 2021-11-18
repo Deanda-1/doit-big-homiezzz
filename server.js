@@ -8,6 +8,7 @@ const sequelize = require('./config/connection');
 const { User, Category, Recipe } = require('./models');
 
 const PORT = 3001;
+const port = process.env.PORT || 3001
 
 const app = express();
 
