@@ -25,13 +25,14 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#name-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
-  console.log(name ,email,password)
+  alert("Fired Handler!!!");
+  const name = document.querySelector('#name').value.trim();
+  const email = document.querySelector('#email').value.trim();
+  const password = document.querySelector('#password').value.trim();
+  console.log(name ,email,password);
 
   if (name && email && password) {
-    const response = await fetch('../routes/userRoutes', {
+    const response = await fetch('/signup', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -50,6 +51,6 @@ const signupFormHandler = async (event) => {
 // document.addEventListener('submit', loginFormHandler);
 
 
-document.querySelector('.signup-form');
+document.querySelector('#signup-form');
 document.addEventListener('#signupBtn', signupFormHandler);
 
