@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/auth');
+// const hbs = require('handlebars-form-helpers').register(hbs.handlebars);
 // const api = require('./routes/index.js');
 
 const sequelize = require('./config/connection');
@@ -9,6 +10,8 @@ const { User, Category, Recipe } = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 3001
+
+// app.use(clog);
 
 
 app.engine('handlebars', exphbs.engine());
@@ -35,6 +38,11 @@ app.get('/category/recipe/:id', (req, res) => {
 // GET Route for Login Page
 app.get('/login', (req, res) => {
   res.render('login');
+});
+
+// GET Route for Login Page
+app.get('/random', (req, res) => {
+  res.render('random');
 });
 
 // GET Route for Sign Up
